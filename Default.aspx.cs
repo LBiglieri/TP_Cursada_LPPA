@@ -12,39 +12,43 @@ namespace TP_Cursada
     {
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			//switch (Session["Perfil"].ToString())
-			//{
-			//	case "Webmaster" :
-			//		//GridView1.DataSource = BLL.Security.DatosErrores();
-			//		GridView1.DataBind();
+			if (Session["Perfil"] == null)
+			{
+				Session["Perfil"] = "";
+			}
+			switch (Session["Perfil"].ToString())
+			{
+				case "Webmaster" :
+					//GridView1.DataSource = BLL.Security.DatosErrores();
+					GridView1.DataBind();
 
-			//		if(GridView1.Rows.Count > 0)
-			//		{
-			//			GridView1.Visible = true;
-			//			btnRecalcularDV.Visible = true;
-			//			Label1.Visible = false;
-			//		}
-			//		else
-			//		{
-			//			btnRecalcularDV.Visible = false;
-			//			GridView1.Visible = false;
-			//			Label1.Visible = true;
-			//			Label1.Text = "Todas las Tablas fueron analizadas y no se encontraron errores";
-			//		}
-			//		break;
-			//	case "Admin":
-			//		GridView1.Visible = false;
-			//		btnRecalcularDV.Visible = false;
-			//		Label1.Visible = true;
-			//		Label1.Text = "Pantalla Principal de Administrador";
-			//		break;
-			//	default:
-			//		GridView1.Visible = false;
-			//		btnRecalcularDV.Visible = false;
-			//		Label1.Visible = true;
-			//		Label1.Text = "Pantalla Principal de Cliente";
-			//		break;
-			//}
+					if(GridView1.Rows.Count > 0)
+					{
+						GridView1.Visible = true;
+						btnRecalcularDV.Visible = true;
+						Label1.Visible = false;
+					}
+					else
+					{
+						btnRecalcularDV.Visible = false;
+						GridView1.Visible = false;
+						Label1.Visible = true;
+						Label1.Text = "Todas las Tablas fueron analizadas y no se encontraron errores";
+					}
+					break;
+				case "Admin":
+					GridView1.Visible = false;
+					btnRecalcularDV.Visible = false;
+					Label1.Visible = true;
+					Label1.Text = "Pantalla Principal de Administrador";
+					break;
+				default:
+					GridView1.Visible = false;
+					btnRecalcularDV.Visible = false;
+					Label1.Visible = true;
+					Label1.Text = "Pantalla Principal de Cliente";
+					break;
+			}
 		}
 		protected void btnRecalcularDV_Click(object sender, EventArgs e)
 		{
@@ -53,7 +57,7 @@ namespace TP_Cursada
 
 			BLL.Security objseg = new BLL.Security();
 			//objseg.GrabarBitacora(Session["Usuario"].ToString(),"Se recalcularon los DV");
-			Response.Redirect("Home.aspx");
+			Response.Redirect("Default.aspx");
 		}
 
 

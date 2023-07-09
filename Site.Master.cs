@@ -12,10 +12,6 @@ namespace TP_Cursada
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Perfil"] == null)
-            {
-                Session["Perfil"] = "";
-            }
             switch (Session["Perfil"].ToString())
             {
                 case "Webmaster":
