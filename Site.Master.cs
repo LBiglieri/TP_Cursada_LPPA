@@ -12,6 +12,10 @@ namespace TP_Cursada
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Perfil"] == null)
+            {
+                Session["Perfil"] = "";
+            }
             switch (Session["Perfil"].ToString())
             {
                 case "Webmaster":
@@ -23,7 +27,7 @@ namespace TP_Cursada
                     mnClientes.Visible = false;
                     LabelUsuario.Text = "Usted ha ingresado como Webmaster";
                     break;
-                case "Admin" :
+                case "Admin":
                     mnWebmaster.Enabled = false;
                     mnWebmaster.Visible = false;
                     mnAdministrador.Enabled = true;
@@ -52,6 +56,7 @@ namespace TP_Cursada
             // objseg.GrabarBitacora(Session["Usuario].Tostring(), "LogOut realizado ");
             Response.Redirect("Login.aspx");
         }
+
 
     }
 }
