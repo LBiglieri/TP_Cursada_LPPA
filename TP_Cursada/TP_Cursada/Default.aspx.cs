@@ -8,8 +8,8 @@ using System.Web.UI.WebControls;
 
 namespace TP_Cursada
 {
-    public partial class _Default : Page
-    {
+	public partial class _Default : Page
+	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			if (Session["Perfil"] == null)
@@ -18,11 +18,11 @@ namespace TP_Cursada
 			}
 			switch (Session["Perfil"].ToString())
 			{
-				case "Webmaster" :
+				case "Webmaster":
 					//GridView1.DataSource = BLL.Security.DatosErrores();
 					GridView1.DataBind();
 
-					if(GridView1.Rows.Count > 0)
+					if (GridView1.Rows.Count > 0)
 					{
 						GridView1.Visible = true;
 						btnRecalcularDV.Visible = true;

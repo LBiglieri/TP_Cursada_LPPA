@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace TP_Cursada
 {
-    public partial class Restore : System.Web.UI.Page
+    public partial class Backup : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -16,14 +16,14 @@ namespace TP_Cursada
                 Response.Redirect("Default.aspx");
             }
         }
-        protected void btnRestore_Click(object sender, EventArgs e)
+        protected void btnBackup_Click(object sender, EventArgs e)
         {
-            string ruta = FileUpload1.PostedFile.FileName;
+            string ruta = "C:\\Users\\Public";
             BLL.Security seg = new BLL.Security();
-            //seg.RealizarRestore(ruta);
+            seg.RealizarBackup(ruta);
 
-            //seg.GrabarBitacora(Session["Usuario"].ToString(), "Restore realizado correctamente");
-            lblRestore.Text = "Restore realizado correctamente";
+            seg.GrabarBitacora(Session[""].ToString(), "Backup realizado");
+            lblBackup.Text = "Backup realizado correctamente";
         }
     }
 }
