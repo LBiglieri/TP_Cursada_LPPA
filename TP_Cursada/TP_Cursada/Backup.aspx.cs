@@ -11,7 +11,7 @@ namespace TP_Cursada
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Perfil"].ToString() != "Webmaster")
+            if (Session["Profile"].ToString() != "Webmaster")
             {
                 Response.Redirect("Default.aspx");
             }

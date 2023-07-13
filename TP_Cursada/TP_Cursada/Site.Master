@@ -64,14 +64,10 @@
                     </asp:menu>
                     <asp:menu ID= "mnAdministrador" runat= "server" Visibile="false" Enabled="false" Orientación= "Horizontal">
                         <items>
-                            <asp:menuitem Text= "Productos" Value= "Restore"> </asp:menuitem>
-                            <asp:menuitem Text= "Ver Clientes" Value= "Ver Clientes"> </asp:menuitem>
                         </items>
                     </asp:menu>
                     <asp:menu ID= "mnClientes" runat="server" Visible= "false"  Enabled="false" Orientation = "Horizontal">
                         <items>
-                            <asp:menuitem Text= "Mis Compras" Value= "Mis Compras"> </asp:menuitem>
-                            <asp:menuitem Text= "Mis Datos" Value= "Mis Datos"> </asp:menuitem>
                         </items>
                     </asp:menu>
                     </asp:panel>

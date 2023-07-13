@@ -22,7 +22,7 @@ namespace DAL
 
         public DataTable ObtenerUsuarioPorNombre(string user)
         {
-            string consulta = "Select • from Users where NickName = '" + user + "'";
+            string consulta = "Select * from Users where Nickname = '" + user + "'";
             DataTable dt = new DataTable();
             DAL.Database bd = new DAL.Database();
             dt = bd.CargarDataset(consulta);
@@ -32,7 +32,7 @@ namespace DAL
         public void AumentarErrorIngreso(string user)
         {
             DAL.Database bd = new DAL.Database();
-            string consulta = "update Users set FailedLogIns = FailedLogIns + 1 where NickName = '" + user + "'";
+            string consulta = "update Users set FailedLogIns = FailedLogIns + 1 where Nickname = '" + user + "'";
             bd.Insert_Update(consulta);
 
             List<string> lista = new List<string>();
@@ -44,7 +44,7 @@ namespace DAL
             }
 
             string dvh = DAL.Security.CalcularDVH(lista);
-            string consulta2 = "update Users set DVH = '" + dvh + "' where NickName = '" + user + "'";
+            string consulta2 = "update Users set DVH = '" + dvh + "' where Nickname = '" + user + "'";
             bd.Insert_Update(consulta2);
             DAL.Security.ActualizarDVV("Users");
         }
@@ -63,7 +63,7 @@ namespace DAL
             }
 
             string dvh = DAL.Security.CalcularDVH(lista);
-            string consulta2 = "update Users set DVH = '" + dvh + "' where NickName = '" + user + "'";
+            string consulta2 = "update Users set DVH = '" + dvh + "' where Nickname = '" + user + "'";
             bd.Insert_Update(consulta2);
             DAL.Security.ActualizarDVV("Users");
         }

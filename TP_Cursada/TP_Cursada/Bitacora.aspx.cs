@@ -12,7 +12,7 @@ namespace TP_Cursada
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Perfil"].ToString() != "Webmaster")
+            if (Session["Profile"].ToString() != "Webmaster")
             {
                 Response.Redirect("Default.aspx");
             }
@@ -21,7 +21,7 @@ namespace TP_Cursada
                 BLL.Security seg = new BLL.Security();
                 DataTable dt = new DataTable();
 
-                //dt = seg.ObtenerDatosBitacora();
+                dt = seg.ObtenerDatosBitacora();
 
                 GridView1.DataSource = dt;
                 GridView1.DataBind();

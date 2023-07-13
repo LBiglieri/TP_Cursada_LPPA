@@ -12,14 +12,10 @@ namespace TP_Cursada
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			if (Session["Perfil"] == null)
-			{
-				Session["Perfil"] = "";
-			}
-			switch (Session["Perfil"].ToString())
+			switch (Session["Profile"].ToString())
 			{
 				case "Webmaster":
-					//GridView1.DataSource = BLL.Security.DatosErrores();
+					GridView1.DataSource = BLL.Security.DatosErrores();
 					GridView1.DataBind();
 
 					if (GridView1.Rows.Count > 0)
@@ -42,7 +38,7 @@ namespace TP_Cursada
 					Label1.Visible = true;
 					Label1.Text = "Pantalla Principal de Administrador";
 					break;
-				default:
+				case "User":
 					GridView1.Visible = false;
 					btnRecalcularDV.Visible = false;
 					Label1.Visible = true;
@@ -53,10 +49,10 @@ namespace TP_Cursada
 		protected void btnRecalcularDV_Click(object sender, EventArgs e)
 		{
 			DataTable dt = (DataTable)GridView1.DataSource;
-			//BLL.Security.RecalcularDVV(dt);
+			BLL.Security.RecalcularDVV(dt);
 
 			BLL.Security objseg = new BLL.Security();
-			//objseg.GrabarBitacora(Session["Usuario"].ToString(),"Se recalcularon los DV");
+			objseg.GrabarBitacora(Session["Usuario"].ToString(),"Se recalcularon los DV");
 			Response.Redirect("Default.aspx");
 		}
 

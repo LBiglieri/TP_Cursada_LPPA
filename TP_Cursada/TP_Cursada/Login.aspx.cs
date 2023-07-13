@@ -27,14 +27,14 @@ namespace TP_Cursada
 
 			if (dt.Rows.Count > 0)
 			{
-				if (Convert.ToInt16(dt.Rows[0]["LoginIntentos"]) >= 1)
+				if (Convert.ToInt16(dt.Rows[0]["FailedLogIns"]) >= 1)
 				{
 					//resetea la cantidad de intentos incorrectos y lo vuelve a dejar en cero
 					objuser.ReiniciarContador(tbUsuario.Text);
 				}
-				Session["Usuario"] = dt.Rows[0]["NickName"].ToString();
-				Session["Perfil"] = dt.Rows[0]["Perfil"].ToString();
-				Session["NombreUsuario"] = dt.Rows[0]["Nombre"].ToString();
+				Session["Nickname"] = dt.Rows[0]["Nickname"].ToString();
+				Session["Profile"] = dt.Rows[0]["Profile"].ToString();
+				Session["Name"] = dt.Rows[0]["Name"].ToString();
 
                 //grabar en bitácora
                 objseg.GrabarBitacora(tbUsuario.Text, "Login correcto");
@@ -44,9 +44,9 @@ namespace TP_Cursada
                 dt = objuser.ObtenerUsuarioPorNombre(tbUsuario.Text);
 
 				//actualización DVH
-				string str = dt.Rows[0]["id"].ToString() + dt.Rows[0]["NickName"].ToString() + dt.Rows[0]["Password"].ToString() + dt.Rows[0]["Nombre"]; /*FALTA AGREGAR*/
+				string str = dt.Rows[0]["ID"].ToString() + dt.Rows[0]["Nickname"].ToString() + dt.Rows[0]["Password"].ToString() + dt.Rows[0]["Name"]; /*FALTA AGREGAR*/
 				FormsAuthentication.RedirectFromLoginPage(tbUsuario.Text, true);
-				Response.Redirect("Home.aspx");
+				Response.Redirect("Default.aspx");
 			}
 			else
 			{
@@ -60,9 +60,9 @@ namespace TP_Cursada
 					//Lo llamo nuevamente
 					dt = objuser.ObtenerUsuarioPorNombre(tbUsuario.Text);
 					//actualización DVH
-					string str = dt.Rows[0]["id"].ToString() + dt.Rows[0]["NickName"].ToString() + dt.Rows[0]["Password"].ToString() + dt.Rows[0]["Nombre"] + dt.Rows[0]["Apellido"].ToString() + dt.Rows[0]["LoginIntentos"].ToString() + dt.Rows[0]["Bloqueado"].ToString();/*FALTA AGREGAR*/
+					string str = dt.Rows[0]["ID"].ToString() + dt.Rows[0]["Nickname"].ToString() + dt.Rows[0]["Password"].ToString() + dt.Rows[0]["Name"] + dt.Rows[0]["Surname"].ToString() + dt.Rows[0]["FailedLogIns"].ToString() + dt.Rows[0]["Lock"].ToString();/*FALTA AGREGAR*/
 
-					if (Convert.ToInt16(dt.Rows[0]["LoginIntentos"]) >= 3)
+					if (Convert.ToInt16(dt.Rows[0]["FailedLogIns"]) >= 3)
 					{
 						//El usuario ha sido bloqueado
 						Response.Write("Usuario bloqueado.Contacte con el Administrador");
@@ -78,7 +78,7 @@ namespace TP_Cursada
 				else
 				{
 					//alert No existe usuario con ese nombre de usuario
-					lblEstado.Text = "No existe ningún usuario con ese nick";
+					lblEstado.Text = "No existe ningún usuario con ese nickname.";
 				}
 			}
 		}

@@ -12,7 +12,11 @@ namespace TP_Cursada
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            switch (Session["Perfil"].ToString())
+            if (Session["Profile"] == null)
+            {
+                Session["Profile"] = "";
+            }
+            switch (Session["Profile"].ToString())
             {
                 case "Webmaster":
                     mnWebmaster.Enabled = true;
@@ -33,7 +37,7 @@ namespace TP_Cursada
                     LabelUsuario.Text = "Usted ha ingresado como Administrador";
                     break;
 
-                default:
+                case "Cliente":
                     mnWebmaster.Enabled = false;
                     mnWebmaster.Visible = false;
                     mnAdministrador.Enabled = false;
@@ -49,7 +53,7 @@ namespace TP_Cursada
         {
             FormsAuthentication.SignOut();
             BLL.Security objseg = new BLL.Security();
-            // objseg.GrabarBitacora(Session["Usuario].Tostring(), "LogOut realizado ");
+            objseg.GrabarBitacora(Session["Nickname"].ToString(), "LogOut realizado ");
             Response.Redirect("Login.aspx");
         }
 

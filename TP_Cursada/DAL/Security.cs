@@ -71,7 +71,7 @@ namespace DAL
             }
             string dvv = Encriptar(acumulado);
 
-            consulta = "UPDATE DigitosVerificadores SET dv_valor ='" + dvv + "' WHERE dv_Tabla = '" + tabla + "'";
+            consulta = "UPDATE DVVs SET dv_value ='" + dvv + "' WHERE dv_table = '" + tabla + "'";
 
             db.Insert_Update(consulta);
         }
