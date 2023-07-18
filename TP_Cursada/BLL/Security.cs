@@ -86,5 +86,11 @@ namespace BLL
 
             DAL.Security.RecalcularDVV(DeleteTableList);
         }
+
+        public static void recalculardvvsinicial(DataTable dt)
+        {
+
+        }
+
     }
 }

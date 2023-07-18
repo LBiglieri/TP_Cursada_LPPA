@@ -54,6 +54,13 @@ namespace TP_Cursada
             FormsAuthentication.SignOut();
             BLL.Security objseg = new BLL.Security();
             objseg.GrabarBitacora(Session["Nickname"].ToString(), "LogOut realizado ");
+            LabelUsuario.Text = "";
+            mnWebmaster.Enabled = false;
+            mnWebmaster.Visible = false;
+            mnAdministrador.Enabled = false;
+            mnAdministrador.Visible = false;
+            mnClientes.Enabled = false;
+            mnClientes.Visible = false;
             Response.Redirect("Login.aspx");
         }
 

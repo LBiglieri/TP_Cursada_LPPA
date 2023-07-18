@@ -57,9 +57,9 @@
                     <asp:panel ID= "panelMenus" runat="server" CssClass="nav navbar-nav">
                     <asp:menu ID="mnWebmaster" runat= "server" Visible="false" Enabled="false" Orientation ="Horizontal">
                         <items>
-                            <asp:menuitem Text= "Bitacora" Value="Bitacora" NavigateUrl= "-/Bitacora.aspx"></asp:menuitem>
-                            <asp:menuitem Text= "Backup" Value="Backup" NavigateUrl= "-/Backup.aspx"></asp:menuitem>
-                            <asp:menuitem Text= "Restore" Value="Restore" NavigateUrl= "-/Restore.aspx"></asp:menuitem>
+                            <asp:menuitem Text= "Bitacora" Value="Bitacora" NavigateUrl= "/Bitacora.aspx"></asp:menuitem>
+                            <asp:menuitem Text= "Backup" Value="Backup" NavigateUrl= "/Backup.aspx"></asp:menuitem>
+                            <asp:menuitem Text= "Restore" Value="Restore" NavigateUrl= "/Restore.aspx"></asp:menuitem>
                         </items>
                     </asp:menu>
                     <asp:menu ID= "mnAdministrador" runat= "server" Visibile="false" Enabled="false" Orientación= "Horizontal">

@@ -21,7 +21,9 @@ namespace DAL
 
             string dvh = CalcularDVH(lista);
 
-            string consulta = "insert into Bitacora(Usuario, Description, InsertTime, DVH) VALUES('" + user + "','" + mensaje + "','" + DateTime.Now.ToString("yyyy/MM/dd HH:mm") + "','" + dvh + "')";
+            string consulta = "declare @rn int = 0" +
+                " select @rn = ROW_NUMBER() over (order by a.InsertTime) from Bitacora a" +
+                " insert into Bitacora(ID, Usuario, Description, InsertTime, DVH) VALUES(CAST((@rn+1) as nvarchar),'" + user + "','" + mensaje + "','" + DateTime.Now.ToString("yyyy/MM/dd HH:mm") + "','" + dvh + "')";
 
             bd.Insert_Update(consulta);
 
@@ -118,7 +120,7 @@ namespace DAL
                         row = dtsalida.NewRow();
                         row["Tabla"] = campo;
                         row["Fila"] = i.ToString();
-                        row["Id"] = dt.Rows[i][0].ToString();
+                        row["ID"] = dt.Rows[i][0].ToString();
                         dtsalida.Rows.Add(row);
                     }
                 }
@@ -144,7 +146,7 @@ namespace DAL
                         acumulado = acumulado + dt.Columns[i].ToString();
                     }
                     string dvh = Encriptar(acumulado);
-                    consulta = "UPDATE " + campo + " SET DVH = '" + dvh + "' WHERE Id = " + dt.Rows[k][0].ToString();
+                    consulta = "UPDATE " + campo + " SET DVH = '" + dvh + "' WHERE ID = " + dt.Rows[k][0].ToString();
 
                     db.Insert_Update(consulta);
                 }
@@ -157,7 +159,7 @@ namespace DAL
         {
             DataTable dt = new DataTable();
             DAL.Database db = new DAL.Database();
-            string consulta = "SELECT * FROM " + tabla;
+            string consulta = "SELECT * FROM " + tabla + " ORDER BY ID";
             dt = db.CargarDataset(consulta);
             return dt;
         }

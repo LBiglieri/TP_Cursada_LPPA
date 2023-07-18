@@ -11,7 +11,7 @@ namespace DAL
     public class Database
     {
         private string ConnectionString = @"Data Source=.;Initial Catalog=TP_Cursada;User ID='Biglieri';pwd='bigliepwd';Persist Security Info=True";
-        private string MasterConnectionString = @"Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=true";
+        private string MasterConnectionString = @"Data Source=.;Initial Catalog=TP_Cursada;User ID='Biglieri';pwd='bigliepwd';Persist Security Info=True";
         private SqlConnection sqlConnection;
         public DataTable CargarDataset(string query)
         {

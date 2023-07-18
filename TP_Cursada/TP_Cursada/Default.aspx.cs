@@ -48,12 +48,12 @@ namespace TP_Cursada
 		}
 		protected void btnRecalcularDV_Click(object sender, EventArgs e)
 		{
+			BLL.Security objseg = new BLL.Security();
+			objseg.GrabarBitacora(Session["Nickname"].ToString(),"Se recalcularán los DV");
+			Response.Redirect("Default.aspx");
+
 			DataTable dt = (DataTable)GridView1.DataSource;
 			BLL.Security.RecalcularDVV(dt);
-
-			BLL.Security objseg = new BLL.Security();
-			objseg.GrabarBitacora(Session["Usuario"].ToString(),"Se recalcularon los DV");
-			Response.Redirect("Default.aspx");
 		}
 
 
