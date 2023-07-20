@@ -53,10 +53,10 @@ namespace TP_Cursada
 		{
 			BLL.Security objseg = new BLL.Security();
 			objseg.GrabarBitacora(Session["Nickname"].ToString(),"Se recalcularán los DV");
-			Response.Redirect("Default.aspx");
 
 			DataTable dt = (DataTable)GridView1.DataSource;
 			BLL.Security.RecalcularDVV(dt);
+			Response.Redirect("Default.aspx");
 		}
 
 

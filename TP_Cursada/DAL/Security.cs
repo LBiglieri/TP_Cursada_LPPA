@@ -111,7 +111,10 @@ namespace DAL
                     {
                         if (j != 0 && j <= dt.Columns.Count - 2)
                         {
-                            listafila.Add(dt.Rows[i][j].ToString());
+                            if (dt.Columns[j].ToString() == "InsertTime")
+                                listafila.Add(DateTime.Parse(dt.Rows[i][j].ToString()).ToString("yyyy/MM/dd HH:mm"));
+                            else
+                                listafila.Add(dt.Rows[i][j].ToString());
                         }
                     }
                     string dvh = CalcularDVH(listafila);
