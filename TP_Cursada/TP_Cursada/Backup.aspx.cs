@@ -13,7 +13,10 @@ namespace TP_Cursada
         {
             if (Session["Profile"].ToString() != "Webmaster")
             {
-                Response.Redirect("Default.aspx");
+                if (Session["Profile"].ToString() == "")
+                    Response.Redirect("Login.aspx");
+                else
+                    Response.Redirect("Default.aspx");
             }
         }
         protected void btnBackup_Click(object sender, EventArgs e)
@@ -22,7 +25,7 @@ namespace TP_Cursada
             BLL.Security seg = new BLL.Security();
             seg.RealizarBackup(ruta);
 
-            seg.GrabarBitacora(Session[""].ToString(), "Backup realizado");
+            seg.GrabarBitacora(Session["Nickname"].ToString(), "Backup realizado");
             lblBackup.Text = "Backup realizado correctamente";
         }
     }

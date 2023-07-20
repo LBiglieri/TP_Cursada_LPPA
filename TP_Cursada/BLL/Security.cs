@@ -34,9 +34,8 @@ namespace BLL
         {
             DAL.Security seg = new DAL.Security();
 
-            //falta linea para ruta completa 
             string ruta_full = ruta + @"\BKP_TP_Cursada_" + DateTime.Now.ToString("yyyyMMdd_HHmm") + ".bak";
-            seg.RealizarBackup(ruta);
+            seg.RealizarBackup(ruta_full);
         }
 
         public void GrabarBitacora(string user, string message)
@@ -86,11 +85,5 @@ namespace BLL
 
             DAL.Security.RecalcularDVV(DeleteTableList);
         }
-
-        public static void recalculardvvsinicial(DataTable dt)
-        {
-
-        }
-
     }
 }

@@ -40,7 +40,7 @@ namespace DAL
 
         public DataTable ObtenerDatosBitacora()
         {
-            string query = "Select * from Bitacora order by fecha desc";
+            string query = "Select * from Bitacora order by cast(ID as int) desc";
             DataTable dt = new DataTable();
             DAL.Database db = new DAL.Database();
             dt = db.CargarDataset(query);
@@ -184,8 +184,11 @@ namespace DAL
         {
             DataTable dt = new DataTable();
             DAL.Database db = new DAL.Database();
-            string query = "IF EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = 'TP_Cursada') DROP DATABASE TP_Cursada RESTORE DATABASE TP_Cursada FROM DISK = '" + ruta + "'";
-
+            string query = "ALTER DATABASE TP_Cursada SET SINGLE_USER WITH ROLLBACK IMMEDIATE;";
+            db.Insert_Update(query, "M"); //parametro opcional en M para ejecutar desde el contexto de la database master. 
+            query = "IF EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = 'TP_Cursada') DROP DATABASE TP_Cursada;";
+            db.Insert_Update(query, "M"); //parametro opcional en M para ejecutar desde el contexto de la database master. 
+            query = "RESTORE DATABASE TP_Cursada FROM DISK = '" + ruta + "'";
             db.Insert_Update(query, "M"); //parametro opcional en M para ejecutar desde el contexto de la database master. 
         }
     }

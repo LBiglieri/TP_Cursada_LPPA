@@ -25,6 +25,10 @@ namespace TP_Cursada
                     mnAdministrador.Visible = false;
                     mnClientes.Enabled = false;
                     mnClientes.Visible = false;
+                    btnLogOut.Enabled = true;
+                    btnLogOut.Visible = true;
+                    LabelUsuario.Enabled = true;
+                    LabelUsuario.Visible = true;
                     LabelUsuario.Text = "Usted ha ingresado como Webmaster";
                     break;
                 case "Admin":
@@ -34,6 +38,10 @@ namespace TP_Cursada
                     mnAdministrador.Visible = true;
                     mnClientes.Enabled = false;
                     mnClientes.Visible = false;
+                    btnLogOut.Enabled = true;
+                    btnLogOut.Visible = true;
+                    LabelUsuario.Enabled = true;
+                    LabelUsuario.Visible = true;
                     LabelUsuario.Text = "Usted ha ingresado como Administrador";
                     break;
 
@@ -44,6 +52,10 @@ namespace TP_Cursada
                     mnAdministrador.Visible = false;
                     mnClientes.Enabled = true;
                     mnClientes.Visible = true;
+                    btnLogOut.Enabled = true;
+                    btnLogOut.Visible = true;
+                    LabelUsuario.Enabled = true;
+                    LabelUsuario.Visible = true;
 
                     LabelUsuario.Text = "Usted ha ingresado como Cliente";
                     break;
@@ -54,6 +66,9 @@ namespace TP_Cursada
             FormsAuthentication.SignOut();
             BLL.Security objseg = new BLL.Security();
             objseg.GrabarBitacora(Session["Nickname"].ToString(), "LogOut realizado ");
+            Session["Profile"] = "";
+            Session["Nickname"] = "";
+            Session["Name"] = "";
             LabelUsuario.Text = "";
             mnWebmaster.Enabled = false;
             mnWebmaster.Visible = false;
@@ -61,6 +76,10 @@ namespace TP_Cursada
             mnAdministrador.Visible = false;
             mnClientes.Enabled = false;
             mnClientes.Visible = false;
+            btnLogOut.Enabled = false;
+            btnLogOut.Visible = false;
+            LabelUsuario.Enabled = false;
+            LabelUsuario.Visible = false;
             Response.Redirect("Login.aspx");
         }
 

@@ -14,7 +14,10 @@ namespace TP_Cursada
         {
             if (Session["Profile"].ToString() != "Webmaster")
             {
-                Response.Redirect("Default.aspx");
+                if (Session["Profile"].ToString() =="")
+                    Response.Redirect("Login.aspx");
+                else
+                    Response.Redirect("Default.aspx");
             }
             else
             {

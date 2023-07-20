@@ -73,7 +73,7 @@
                     </asp:panel>
                     <asp:panel ID="panelLogOut" runat ="server" CssClass="nav navbar-nav">
                         <asp:Label ID="LabelUsuario" runat="server" ForeColor="White" ></asp:Label>
-                        <asp:Button ID= "btnLogOut" runat ="server" Text="LogOut" BackColor="Transparent" ForeColor="White" BorderColor ="Transparent" />
+                        <asp:Button ID= "btnLogOut" runat ="server" Text="LogOut" BackColor="Transparent" ForeColor="White" BorderColor ="Transparent" onclick="btnLogOut_Click" Visible="false" />
                     </asp:panel>
                 </div>
             </div>
