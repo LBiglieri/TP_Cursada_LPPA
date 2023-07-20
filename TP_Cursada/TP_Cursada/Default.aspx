@@ -7,6 +7,7 @@
     </div>
 	<div class="content">
         <asp:GridView ID="GridView1" runat="server" Height="263px" Width="791px"></asp:GridView>
+        <br />
         <asp:Button ID="btnRecalcularDV" runat="server" CssClass="btn-default" Text="Recalcular DV" OnClick="btnRecalcularDV_Click" Width="150px"/>
         <asp:Label ID="Label1" runat="server" Text="Label" Font-Bold="True" Font-Size="X-Large"></asp:Label>
     </div>

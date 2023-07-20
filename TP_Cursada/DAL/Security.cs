@@ -95,7 +95,7 @@ namespace DAL
 
             col = new DataColumn();
             col.DataType = typeof(Int32);
-            col.ColumnName = "Id";
+            col.ColumnName = "ID";
             dtsalida.Columns.Add(col);
 
             foreach (string campo in listaTablas)

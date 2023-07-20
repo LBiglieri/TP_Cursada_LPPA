@@ -12,6 +12,9 @@ namespace TP_Cursada
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+			if (Session["Profile"].ToString() == "")
+				Response.Redirect("Login.aspx");
+
 			switch (Session["Profile"].ToString())
 			{
 				case "Webmaster":
