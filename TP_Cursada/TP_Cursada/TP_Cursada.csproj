@@ -108,6 +108,8 @@
     <Content Include="About.aspx" />
     <Content Include="Backup.aspx" />
     <Content Include="Bitacora.aspx" />
+    <Content Include="Carrito.aspx" />
+    <Content Include="Catalogo.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -187,6 +189,20 @@
     <Compile Include="Bitacora.aspx.designer.cs">
       <DependentUpon>Bitacora.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Carrito.aspx.cs">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Carrito.aspx.designer.cs">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogo.aspx.cs">
+      <DependentUpon>Catalogo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogo.aspx.designer.cs">
+      <DependentUpon>Catalogo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -256,6 +272,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\API\API.csproj">
+      <Project>{863017C5-2C19-4C01-9893-E79974BF4B54}</Project>
+      <Name>API</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{721590b1-9463-4056-a48d-8c8ca9fd2bdb}</Project>
       <Name>BLL</Name>

@@ -26,6 +26,7 @@ namespace TP_Cursada
 						GridView1.Visible = true;
 						btnRecalcularDV.Visible = true;
 						Label1.Visible = false;
+						Label1.Text = "Todas las Tablas fueron analizadas y se encontraron los siguientes errores:";
 					}
 					else
 					{
@@ -41,7 +42,7 @@ namespace TP_Cursada
 					Label1.Visible = true;
 					Label1.Text = "Pantalla Principal de Administrador";
 					break;
-				case "User":
+				case "Cliente":
 					GridView1.Visible = false;
 					btnRecalcularDV.Visible = false;
 					Label1.Visible = true;

@@ -68,6 +68,8 @@
                     </asp:menu>
                     <asp:menu ID= "mnClientes" runat="server" Visible= "false"  Enabled="false" Orientation = "Horizontal">
                         <items>
+                            <asp:menuitem Text= "Catalogo" Value="Catalogo" NavigateUrl= "/Catalogo.aspx"></asp:menuitem>
+                            <asp:menuitem Text= "Carrito" Value="Carrito" NavigateUrl= "/Carrito.aspx"></asp:menuitem>
                         </items>
                     </asp:menu>
                     </asp:panel>
