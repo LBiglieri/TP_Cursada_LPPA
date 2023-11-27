@@ -52,7 +52,7 @@ namespace Mobile
                     break;
             }
 
-            DisplayAlert("Added to Cart", $"Room '{roomName}' added to the cart", "OK");
+            DisplayAlert("Añadido al Carrito", $"Habitación '{roomName}' añadida al carrito. ", "OK");
         }
 
         private async void GoToShoppingCart_Clicked(object sender, EventArgs e)

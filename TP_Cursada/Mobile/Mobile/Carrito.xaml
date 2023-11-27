@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="Mobile.Carrito">
     <StackLayout>
-        <Label Text="Shopping Cart" FontSize="Title" HorizontalOptions="CenterAndExpand" Margin="10,10,10,0"/>
+        <Label Text="Carrito" FontSize="Title" HorizontalOptions="CenterAndExpand" Margin="10,10,10,0"/>
 
         <StackLayout>
             <CollectionView x:Name="CartCollectionView"
