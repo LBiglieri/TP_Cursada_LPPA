@@ -44,4 +44,19 @@ namespace BLL
         public HotelRooms() { }
 
     }
+
+    public class RoomCountWrapper
+    {
+        public RoomCountWrapper(int dobleDeluxe, int dobleStandard, int suite, int suiteDeluxe) 
+        {
+            DobleDeluxe = dobleDeluxe;
+            DobleStandard = dobleStandard;
+            Suite = suite;
+            SuiteDeluxe = suiteDeluxe; 
+        }
+        public int DobleDeluxe { get; set; }
+        public int DobleStandard { get; set; }
+        public int Suite { get; set; }
+        public int SuiteDeluxe { get; set; }
+    }
 }

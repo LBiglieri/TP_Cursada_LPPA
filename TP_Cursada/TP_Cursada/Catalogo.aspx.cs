@@ -78,16 +78,3 @@ namespace TP_Cursada
         }
     }
 }
-
-/*
-             List<HotelRoom> Rooms = ObtenerCatalogo(precio_maximo);
-            string tempPath = Path.GetTempPath();
-
-            var serializer = new XmlSerializer(typeof(HotelRoom));
-            using (var writer = new StreamWriter(tempPath + @"\HotelRooms.xml"))
-            {
-                serializer.Serialize(writer, Rooms);
-            }
-            XmlDocument doc = new XmlDocument();
-            doc.Load(tempPath + @"\HotelRooms.xml");
- */
